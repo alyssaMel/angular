@@ -1,0 +1,135 @@
+<html lang="en"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="UTF-8">
+    <title>Drag &amp; Drop Lists for angular.js</title>
+
+    <!-- jQuery is not required -->
+    <!-- <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> -->
+
+    <!-- angular is the only dependency! -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="../angular-drag-and-drop-lists.js"></script>
+
+    <!-- Stuff that is only required in this demo (no need to copy) -->
+    <link rel="stylesheet" href="framework/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="framework/vendor/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="framework/vendor/prism.css">
+    <link rel="stylesheet" href="framework/demo-framework.css">
+    <link rel="stylesheet" type="text/css" href="simple/simple.css">
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+    <script src="framework/vendor/prism.js"></script>
+    <script src="framework/demo-framework.js"></script>
+    <script src="framework/view-source.js"></script>
+    <script src="simple/simple.js"></script>
+
+</head>
+<body class="ng-scope" ng-app="demo" ng-controller="SimpleDemoController">
+
+   
+
+    <div class="container">
+
+       
+
+        <!-- ngView:  --><div class="ng-scope" ng-view=""><h1 class="ng-scope">Demo: Simple Lists</h1>
+
+<div class="simpleDemo row ng-scope">
+
+    <div class="col-md-8">
+        <div class="row">
+            <!-- ngRepeat: (listName, list) in models.lists --><div ng-repeat="(listName, list) in models.lists" class="col-md-6 ng-scope">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title ng-binding">List A</h3>
+                    </div>
+                    <!-- ngInclude: 'simple/simple.html' --><div class="panel-body ng-scope" ng-include="'simple/simple.html'"><!-- The dnd-list directive allows to drop elements into it.
+     The dropped data will be added to the referenced list -->
+<ul class="ng-scope" dnd-list="list">
+    <!-- The dnd-draggable directive makes an element draggable and will
+         transfer the object that was assigned to it. If an element was
+         dragged away, you have to remove it from the original list
+         yourself using the dnd-moved attribute -->
+    <!-- ngRepeat: item in list --><li draggable="true" class="ng-binding ng-scope" ng-repeat="item in list" dnd-draggable="item" dnd-moved="list.splice($index, 1)" dnd-effect-allowed="move" dnd-selected="models.selected = item" ng-class="{'selected': models.selected === item}">
+        Item A2
+    </li><!-- end ngRepeat: item in list --><li draggable="true" class="ng-binding ng-scope" ng-repeat="item in list" dnd-draggable="item" dnd-moved="list.splice($index, 1)" dnd-effect-allowed="move" dnd-selected="models.selected = item" ng-class="{'selected': models.selected === item}">
+        Item B1
+    </li><!-- end ngRepeat: item in list --><li draggable="true" class="ng-binding ng-scope" ng-repeat="item in list" dnd-draggable="item" dnd-moved="list.splice($index, 1)" dnd-effect-allowed="move" dnd-selected="models.selected = item" ng-class="{'selected': models.selected === item}">
+        Item A3
+    </li><!-- end ngRepeat: item in list --><li draggable="true" class="ng-binding ng-scope" ng-repeat="item in list" dnd-draggable="item" dnd-moved="list.splice($index, 1)" dnd-effect-allowed="move" dnd-selected="models.selected = item" ng-class="{'selected': models.selected === item}">
+        Item B2
+    </li><!-- end ngRepeat: item in list -->
+</ul>
+</div>
+                </div>
+            </div><!-- end ngRepeat: (listName, list) in models.lists --><div ng-repeat="(listName, list) in models.lists" class="col-md-6 ng-scope">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title ng-binding">List B</h3>
+                    </div>
+                    <!-- ngInclude: 'simple/simple.html' --><div class="panel-body ng-scope" ng-include="'simple/simple.html'"><!-- The dnd-list directive allows to drop elements into it.
+     The dropped data will be added to the referenced list -->
+<ul class="ng-scope" dnd-list="list">
+    <!-- The dnd-draggable directive makes an element draggable and will
+         transfer the object that was assigned to it. If an element was
+         dragged away, you have to remove it from the original list
+         yourself using the dnd-moved attribute -->
+    <!-- ngRepeat: item in list --><li draggable="true" class="ng-binding ng-scope" ng-repeat="item in list" dnd-draggable="item" dnd-moved="list.splice($index, 1)" dnd-effect-allowed="move" dnd-selected="models.selected = item" ng-class="{'selected': models.selected === item}">
+        Item A1
+    </li><!-- end ngRepeat: item in list --><li draggable="true" class="ng-binding ng-scope" ng-repeat="item in list" dnd-draggable="item" dnd-moved="list.splice($index, 1)" dnd-effect-allowed="move" dnd-selected="models.selected = item" ng-class="{'selected': models.selected === item}">
+        Item B3
+    </li><!-- end ngRepeat: item in list -->
+</ul>
+</div>
+                </div>
+            </div><!-- end ngRepeat: (listName, list) in models.lists -->
+        </div>
+
+
+
+    </div>
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Generated Model</h3>
+            </div>
+            <div class="panel-body">
+                <pre class="code ng-binding">{
+  "selected": null,
+  "lists": {
+    "A": [
+      {
+        "label": "Item A2"
+      },
+      {
+        "label": "Item B1"
+      },
+      {
+        "label": "Item A3"
+      },
+      {
+        "label": "Item B2"
+      }
+    ],
+    "B": [
+      {
+        "label": "Item A1"
+      },
+      {
+        "label": "Item B3"
+      }
+    ]
+  }
+}</pre>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+    </div>
+
+
+</body></html>
